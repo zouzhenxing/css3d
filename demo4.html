@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>立方体</title>
+		<style type="text/css">
+			.stage {
+				perspective: 600px;
+				-webkit-perspective: 600px;
+				margin-top: 200px;
+			}
+			.continer {
+				transform-style: preserve-3d;
+				width: 100px;
+				height: 100px;
+				margin: auto;
+				transition: transform 0.3s ease-in;
+				animation:mymove 5s linear infinite;
+			}
+			.continer div {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				opacity: 0.3;
+			}
+			.continer div:nth-child(1) {
+				background-color: darkblue;
+				transform: rotateY(0deg) translateZ(50px);
+			}
+			.continer div:nth-child(2) {
+				background-color: darkcyan;
+				transform: rotateY(90deg) translateZ(50px);;
+			}
+			.continer div:nth-child(3) {
+				background-color: darkgoldenrod;
+				transform: rotateY(180deg) translateZ(50px);;
+			}
+			.continer div:nth-child(4) {
+				background-color: darkgreen;
+				transform: rotateY(270deg) translateZ(50px);;
+			}
+			.continer div:nth-child(5) {
+				background-color: darkmagenta;
+				transform: rotateX(90deg) translateZ(50px);;
+			}
+			.continer div:nth-child(6) {
+				background-color: darkorange;
+				transform: rotateX(270deg) translateZ(50px);;
+			}
+			
+			@-webkit-keyframes mymove{
+				0%{transform: rotateY(0deg) rotateX(0deg);}
+				/*50%{transform: rotateY(360deg) rotateX(0deg);}*/
+				100%{transform: rotateY(360deg) rotateX(360deg);}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stage">
+			<div class="continer">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</body>
+</html>

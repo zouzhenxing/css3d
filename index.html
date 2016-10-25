@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.stage {
+				perspective: 201px;
+				height: 100px;
+				padding: 100px 50px;
+				background-color: #f0f0f0;
+			}
+			.d {
+				transform: translateZ(0px);
+				width: 50px;
+				height: 50px;
+				background-color: royalblue;
+				margin: auto;
+				transition: all 1s ease-in;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stage">
+			<div class="d" id="d">
+				
+			</div>
+		</div>
+		<button onclick="add()">+</button>
+		<button onclick="minus()">-</button>
+	</body>
+	<script type="text/javascript">
+		var d = document.getElementById("d");
+		var px = 0;
+		function add() {
+			px += 50;
+			d.style.transform = "translateZ(".concat(px,"px)");
+		}
+		function minus() {
+			px -= 50;
+			d.style.transform = "translateZ(".concat(px,"px)");
+		}
+	</script>
+</html>

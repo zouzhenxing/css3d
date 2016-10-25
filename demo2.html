@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>远近透视</title>
+		<style type="text/css">
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+			.stage {
+				perspective: 1px;
+			}
+			.continer {
+				transform-style: preserve-3d;
+			}
+			.continer div {
+				width: 100%;
+				height: 100vh;
+				position: absolute;
+				transition: transform 0.5s linear;
+			}
+			.continer div img {
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stage">
+			<div class="continer">
+				<div class="d" style="z-index: 10;">
+				</div>
+				<div class="d" style="z-index: 9;">
+				</div>
+				<div class="d" style="z-index: 8;">
+				</div>
+				<div class="d" style="z-index: 7;">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arr = [0,-1,-2,-3];
+		var d  = document.getElementsByClassName("d");
+		change();
+		
+		window.onmousewheel = function(e) {
+			if( e.wheelDelta > 0 ) {
+				for(var i = 0;i < arr.length;i++) {
+					arr[i] += 1;
+				}
+			} else {
+				for(var i = 0;i < arr.length;i++) {
+					arr[i] -= 1;
+				}
+			}
+			change();
+			console.log(arr);
+		}
+		
+		function change() {
+			for(var i = 0;i < arr.length;i++) {
+				d[i].style.transform = "translateZ(".concat(arr[i],"px)");
+			}
+		}
+	</script>
+</html>

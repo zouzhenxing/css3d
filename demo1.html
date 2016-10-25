@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>旋转木马</title>
+		<style type="text/css">
+			.stage {
+				perspective: 600px;
+				-webkit-perspective: 600px;
+				margin-top: 200px;
+			}
+			.continer {
+				transform-style: preserve-3d;
+				width: 100px;
+				height: 100px;
+				margin: auto;
+				transition: transform 0.3s ease-in;
+			}
+			.continer div {
+				height: 100px;
+				width: 100px;
+				position: absolute;
+			}
+			.continer div:nth-child(1) {
+				background-color: red;
+				transform: rotateY(0deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(2) {
+				background-color: blue;
+				transform: rotateY(40deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(3) {
+				background-color: bisque;
+				transform: rotateY(80deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(4) {
+				background-color: blueviolet;
+				transform: rotateY(120deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(5) {
+				background-color: brown;
+				transform: rotateY(160deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(6) {
+				background-color: aquamarine;
+				transform: rotateY(200deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(7) {
+				background-color: aquamarine;
+				transform: rotateY(240deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(8) {
+				background-color: darkcyan;
+				transform: rotateY(280deg) translateZ(157.37px);
+			}
+			.continer div:nth-child(9) {
+				background-color: darkolivegreen;
+				transform: rotateY(320deg) translateZ(157.37px);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="stage">
+			<div class="continer">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var c = document.getElementsByClassName("continer")[0];
+		var items = c.getElementsByTagName("div");
+		var deg = 0;
+		for(var i = 0;i < items.length;i++) {
+			items[i].onclick = function() {
+				deg += 40;
+				c.style.transform = "rotateY(".concat(deg,"deg)");
+			}
+		}
+	</script>
+</html>
